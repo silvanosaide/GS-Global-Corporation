@@ -1,0 +1,99 @@
+/* BOTÃO FLUTUANTE DE CHAMADA */
+       
+
+.call-btn {
+          position: fixed;
+          bottom: 66px;
+          right: 66px;
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: #0b4a6b; /* azul técnico/industrial */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow:
+            0 8px 24px rgba(11, 74, 107, 0.35),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+          z-index: 999;
+          cursor: pointer;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* Hover desktop */
+       .call-btn:hover {
+          transform: scale(1.08);
+          box-shadow:
+            0 12px 30px rgba(11, 74, 107, 0.45),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+        }
+
+        /* Pulso suave (confiança, não agressivo) */
+      .call-btn::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          animation: callPulse 2.4s infinite;
+          background: rgba(11, 74, 107, 0.35);
+          z-index: -1;
+        }
+
+        @keyframes callPulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          70% {
+            transform: scale(1.8);
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+          .call-btn {
+            bottom: 20px;
+            right: 20px;
+            width: 54px;
+            height: 54px;
+          }
+        }
+
+
+        /* ===============================
+   UTILITY BAR – CONTATO RÁPIDO
+   =============================== */
+
+.utility-bar__button {
+  display: flex;
+  align-items: center;
+  gap: 0.50rem;
+  padding: 0.55rem 1rem;
+
+  background: #ffffff;
+  color: #0b4a6b !important;
+
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  transition: 0.25s ease;
+}
+
+.utility-bar__button:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+

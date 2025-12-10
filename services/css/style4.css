@@ -1,0 +1,901 @@
+/* ==========================================================
+   VARIÁVEIS GLOBAIS
+   ========================================================== */
+
+.gs-hidraulica {
+  --bg: #f6f8fb;
+  --white: #ffffff;
+  --blue: #0b4a6b;
+  --blue-strong: #0b5ed7;
+  --muted: #6b7785;
+  --accent: #ff7a1a;
+  --green: #2fa84f;
+  --card-shadow: 0 10px 20px rgba(14, 30, 37, 0.06);
+  --maxw: 1100px;
+  --card-bg-soft: #f5f7fa;
+  --icon-bg-soft: #eaf1fb;
+  --icon-blue-soft: #2f80ed;
+
+}
+
+.gs-hidraulica h1,
+.gs-hidraulica h2,
+.gs-hidraulica h3,
+.gs-hidraulica h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--blue);
+}
+
+.gs-hidraulica h1 {
+  font-size: 2.3rem;
+  line-height: 1.15;
+}
+
+.gs-hidraulica h2 {
+  font-size: 1.8rem;
+}
+
+.gs-hidraulica h3 {
+  font-size: 1.3rem;
+}
+
+.gs-hidraulica p,
+.gs-hidraulica div,
+.gs-hidraulica li {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+
+
+
+/* ==========================================================
+   RESET TIPOGRÁFICO DEFINITIVO
+   ========================================================== */
+
+.gs-hidraulica {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI',
+               Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  font-size: 16px;        /* base correta */
+  line-height: 1.65;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  letter-spacing: -0.01em; /* deixa a Inter mais elegante */
+}
+
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+.gs-hidraulica *,
+.gs-hidraulica *::before,
+.gs-hidraulica *::after {
+  box-sizing: border-box;
+}
+
+
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+.gs-hidraulica {
+
+  background-color: var(--white);
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(11, 74, 107, 0.06) 1.5px,
+      transparent 1.6px
+    ),
+    /* Painel técnico abstrato */
+    repeating-linear-gradient(
+      0deg,
+      rgba(11, 74, 107, 0.025),
+      rgba(11, 74, 107, 0.025) 1px,
+      transparent 1px,
+      transparent 120px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(11, 74, 107, 0.02),
+      rgba(11, 74, 107, 0.02) 1px,
+      transparent 1px,
+      transparent 160px
+    );
+
+  background-size:
+    32px 32px,
+    100% 120px,
+    160px 100%;
+
+  background-attachment: fixed;
+  color: #182028;
+  line-height: 1.5;
+
+  --card-bg-soft: #f5f7fa;
+}
+
+/* BOTÃO FLUTUANTE DE CHAMADA */
+        .call-btn {
+          position: fixed;
+          bottom: 66px;
+          right: 66px;
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: #0b4a6b; /* azul técnico/industrial */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow:
+            0 8px 24px rgba(11, 74, 107, 0.35),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+          z-index: 999;
+          cursor: pointer;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* Hover desktop */
+       .call-btn:hover {
+          transform: scale(1.08);
+          box-shadow:
+            0 12px 30px rgba(11, 74, 107, 0.45),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+        }
+
+        /* Pulso suave (confiança, não agressivo) */
+      .call-btn::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          animation: callPulse 2.4s infinite;
+          background: rgba(11, 74, 107, 0.35);
+          z-index: -1;
+        }
+
+        @keyframes callPulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          70% {
+            transform: scale(1.8);
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+          .call-btn {
+            bottom: 20px;
+            right: 20px;
+            width: 54px;
+            height: 54px;
+          }
+        }
+
+/* ==========================================================
+   CONTAINER
+   ========================================================== */
+
+.gs-hidraulica .container {
+  width: calc(100% - 40px);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+
+
+/* ==========================================================
+   GRIDS
+   ========================================================== */
+
+.gs-hidraulica .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.gs-hidraulica .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gs-hidraulica .grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.gs-hidraulica .grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+
+/* ==========================================================
+   SEÇÕES
+   ========================================================== */
+
+.gs-hidraulica .section {
+  padding: 48px 0;
+}
+
+.gs-hidraulica .section.alt {
+  background: var(--white);
+  border-top: 1px solid rgba(11, 74, 107, 0.03) ;
+}
+
+.gs-hidraulica .section.cta {
+  padding: 64px 0;
+  background: var(--white) ;
+  text-align: left;
+}
+
+
+
+/* ==========================================================
+   TÍTULOS (underline por baixo)
+   ========================================================== */
+
+.gs-hidraulica .section-title {
+  display: inline-block  ;
+  position: relative ;
+
+  margin: 0 0 40px ;
+
+  font-size: 2.5rem ;
+  font-weight: 700 ;
+  color: var(--blue) ;
+}
+
+.gs-hidraulica .section-title::after {
+  content: "" ;
+  display: block ;
+
+  width: 60px ;
+  height: 4px ;
+
+  margin-top: 10px ;
+
+  background: var(--blue-strong) ;
+  border-radius: 4px ;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+
+
+.gs-hidraulica .hero {
+  padding: 56px 0;
+  background: var(--bg);
+}
+
+.gs-hidraulica .hero-inner {
+  align-items: center;
+}
+
+.gs-hidraulica .hero-title {
+  margin: 0 0 12px;
+  font-size: 36px ;
+  line-height: 1.02;
+  color: var(--blue);
+}
+
+.gs-hidraulica .hero-title strong {
+  font-weight: 700 ;
+}
+
+.gs-hidraulica .small-accent {
+  display: block;       /* fica abaixo do título */
+  width: 80px;
+  height: 4px;
+  margin-top: 15px;      /* espaço entre o título e o underline */
+  background: var(--accent) ;
+  border-radius: 10px;
+}
+
+.gs-hidraulica .lead {
+  max-width: 720px;
+  margin-bottom: 18px;
+  color: var(--muted) ;
+}
+
+.gs-hidraulica .hero-image img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow) ;
+}
+
+
+/* ==========================================================
+   LISTAS / BULLETS
+   ========================================================== */
+
+.gs-hidraulica .bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gs-hidraulica .bullets li {
+  display: flex;
+  align-items: center;
+
+  margin: 8px 0;
+
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.gs-hidraulica .bullets i {
+  margin-right: 10px;
+}
+
+.gs-hidraulica .icon-blue {
+ color: var(--accent);
+}
+
+
+
+
+/* ==========================================================
+   CARDS (GERAL)
+   ========================================================== */
+
+.gs-hidraulica .cards {
+  margin-top: 12px;
+}
+
+.gs-hidraulica .cards-wrap {
+  align-items: stretch;
+}
+
+.gs-hidraulica .card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 70px;
+  padding: 18px;
+
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+
+  transition: transform 0.18s ease,
+              box-shadow 0.18s ease;
+}
+
+.gs-hidraulica .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(14, 30, 37, 0.08);
+}
+
+.gs-hidraulica .card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background: rgba(11, 74, 107, 0.04) ;
+  color: var(--blue-strong) ;
+
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.gs-hidraulica .card-body {
+  font-weight: 600 ;
+
+}
+
+
+/* ==========================================================
+   CARDS PEQUENOS (POR QUE ESCOLHER)
+   ========================================================== */
+
+/* Card base */
+.gs-hidraulica .card.small {
+  background: var(--card-bg-soft);
+  padding: 18px 20px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) ;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gs-hidraulica .card.small:hover {
+  transform: translateY(-3px) ;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08) ;
+}
+
+/* Ícone + texto */
+.gs-hidraulica .card-inline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Ícone circular permanece igual */
+/* Ícone circular permanece igual */
+.gs-hidraulica .card-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: var(--icon-bg-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ícone ajustado para subir corretamente */
+.gs-hidraulica .card-icon i {
+  font-size: 18px ;
+  color: var(--icon-blue-soft) ;
+  position: relative;
+  top: -6px; /* sobe mais, agora deve ficar alinhado com o texto */
+}
+
+/* Flex para ícone + texto */
+.gs-hidraulica .card-inline {
+  display: flex;
+  align-items: flex-start; /* garante que o texto fique alinhado com o topo do ícone */
+  gap: 14px;
+}
+
+/* Texto */
+.gs-hidraulica .card-body {
+  font-size: 1.5rem ;
+  font-weight: 500 ;
+  color: #2b2b2b ;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .gs-hidraulica .cards.grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .gs-hidraulica .cards.grid-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================
+   PROCESSO
+   ========================================================== */
+
+.gs-hidraulica .processo-cards .card-processo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 120px;
+  padding: 20px;
+
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+
+  text-align: center;
+}
+
+.gs-hidraulica .card-processo i {
+  padding: 10px;
+
+  font-size: 28px;
+  color: var(--accent);
+
+  background: rgba(255, 122, 26, 0.08);
+  border-radius: 10px ;
+}
+
+.gs-hidraulica .card-processo .p-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2c33;
+}
+
+
+/* ==========================================================
+   GALERIA
+   ========================================================== */
+
+.gs-hidraulica .gallery {
+  margin-top: 18px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.gs-hidraulica .thumb {
+  position: relative;
+
+  padding: 12px;
+
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow) ;
+}
+
+.gs-hidraulica .thumb img {
+  display: block;
+  width: 100%;
+  height: 150px;
+
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gs-hidraulica .thumb figcaption {
+  margin-top: 10px ;
+  font-size: 14px ;
+  color: var(--muted) ;
+}
+
+.gs-hidraulica .badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+
+  padding: 6px 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+
+  border-radius: 6px;
+}
+
+.gs-hidraulica .badge.red   { background: #d9534f; }
+.gs-hidraulica .badge.green { background: var(--green); }
+
+
+/* ==========================================================
+   PARÁGRAFO INTRODUÇÃO
+   ========================================================== */
+
+.gs-hidraulica .intro {
+  max-width: 680px ;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+/* ==========================================================
+   PORTFOLIO TÉCNICO – ISOLADO
+   ========================================================== */
+
+.gs-hidraulica .portfolio-tech {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Header */
+.gs-hidraulica .portfolio-tech__header {
+  max-width: 700px;
+}
+
+.gs-hidraulica .portfolio-tech__title {
+  font-size: 1.6rem ;
+  font-weight: 700 ;
+  color: var(--blue) ;
+  margin-bottom: 2px;
+}
+
+.gs-hidraulica .portfolio-tech__intro {
+  color: var(--muted) ;
+}
+
+/* Item */
+.gs-hidraulica .portfolio-tech__item {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Texto */
+.gs-hidraulica .portfolio-tech__name {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: var(--blue) ;
+}
+
+.gs-hidraulica .portfolio-tech__desc {
+  color: var(--muted) ;
+  line-height: 1.5 ;
+}
+
+/* Media */
+.gs-hidraulica .portfolio-tech__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.gs-hidraulica .portfolio-tech__image {
+  position: relative;
+}
+
+.gs-hidraulica .portfolio-tech__image img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+
+/* Labels */
+.gs-hidraulica .portfolio-tech__label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.gs-hidraulica .portfolio-tech__label.before {
+  background: #d9534f;
+}
+
+.gs-hidraulica .portfolio-tech__label.after {
+  background: var(--green);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .gs-hidraulica .portfolio-tech__item {
+    grid-template-columns: 1fr;
+  }
+
+  .gs-hidraulica .portfolio-tech__media {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+/* ==========================================================
+   FAQ
+   ========================================================== */
+
+/* Container da pergunta */
+.gs-hidraulica .faq .q {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+  background: #fff; /* fundo branco da pergunta */
+  border-left: 4px solid var(--blue-strong); /* borda azul lateral */
+}
+
+/* Efeito hover da pergunta */
+.gs-hidraulica .faq .q:hover {
+  transform: translateY(-4px);
+}
+
+/* Título da pergunta */
+.gs-hidraulica .q-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  background: #f9fafb; /* fundo sutil para o título */
+}
+
+/* Título quando aberto */
+.gs-hidraulica .q.open .q-title {
+  background: #eef4fb; /* destaque suave quando aberto */
+}
+
+/* Corpo da resposta (inicialmente fechado) */
+.gs-hidraulica .q-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px; /* padding inicial zero para animar */
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+  background: #fff; /* mantém fundo branco */
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Corpo da resposta quando aberto */
+.gs-hidraulica .q.open .q-body {
+  max-height: 500px; /* altura suficiente para o conteúdo */
+  padding: 16px 20px; /* padding final animado */
+  opacity: 1;
+}
+
+/* Ícone + ao lado da pergunta */
+.gs-hidraulica .plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+/* Ícone + gira quando aberto */
+.gs-hidraulica .q.open .plus i {
+  transform: rotate(45deg);
+}
+
+
+
+/* ==========================================================
+   BOTÕES
+   ========================================================== */
+
+.gs-hidraulica .btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 28px;
+  margin-top: 0;
+
+  background: var(--accent);
+  color: #fff;
+
+  border-radius: 28px;
+  text-decoration: none;
+  font-weight: 700;
+
+  box-shadow: 0 10px 24px rgba(255, 122, 26, 0.28);
+}
+
+
+
+
+.gs-hidraulica .cta-actions {
+  margin-top: 18px;
+}
+
+
+/* ==========================================================
+   FLOAT CALL
+   ========================================================== */
+
+.gs-hidraulica .float-call {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+
+  width: 56px;
+  height: 56px;
+
+  background: var(--accent) ;
+  color: #fff ;
+
+  border-radius: 50%;
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(255, 122, 26, 0.28);
+  z-index: 999;
+}
+
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+@media (max-width: 1100px) {
+  .gs-hidraulica .grid-5 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .gs-hidraulica .grid-2,
+  .gs-hidraulica .grid-3,
+  .gs-hidraulica .grid-4,
+  .gs-hidraulica .grid-5 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .gs-hidraulica .hero-title { font-size: 28px; }
+  .gs-hidraulica .gallery   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .gs-hidraulica .grid-2,
+  .gs-hidraulica .grid-3,
+  .gs-hidraulica .grid-4,
+  .gs-hidraulica .grid-5 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .gs-hidraulica .hero-title { font-size: 22px; }
+}
+
+
+
+
+/* Adicionando animações suaves */
+.gs-hidraulica .animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.gs-hidraulica .animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FAQ com animação suave */
+.gs-hidraulica .q-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+
+.gs-hidraulica .q.open .q-body {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Hover imagens da galeria */
+.gs-hidraulica .thumb img {
+  transition: transform 0.3s ease;
+}
+.gs-hidraulica .thumb:hover img {
+  transform: scale(1.05);
+}
+
+/* Ajuste ícones cores */
+.gs-hidraulica .icon-blue { color: var(--blue-strong) ; }
+.gs-hidraulica .icon-orange { color: #ff7a1a ; }
+
+/* CTA hover */
+.gs-hidraulica .btn-whatsapp:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 28px rgba(37, 211, 102, 0.25) ;
+  transition: all 0.3s ease;
+}
+
+/* Hero title legível */
+.gs-hidraulica .hero-title {
+  line-height: 1.3;
+}
