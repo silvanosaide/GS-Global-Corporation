@@ -306,184 +306,119 @@
 
    /* COMEÇA AQUI...*/
   
-    .btn-cotacao {
-      margin-left: auto;
-      background: linear-gradient(45deg, #0d6efd, #1e88e5);
-      border: none;
-      padding: 10px 22px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-    .btn-cotacao:hover {
-      background: linear-gradient(45deg, #0b5ed7, #0d6efd);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(13,110,253,0.4);
-    }
-
-    /* CONTEÚDO */
-    main {
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.3s;
-    }
-    .modal-content {
-      background: #fff;
-      width: 95%;
-      max-width: 520px;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      animation: scaleIn 0.3s forwards;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .modal-header h2 {
-      margin: 0;
-      color: #0d6efd;
-    }
-    .close {
-      font-size: 22px;
-      cursor: pointer;
-      color: #666;
-    }
-    .close:hover { color: #000; }
-
-    /* APRESENTAÇÃO */
-    .empresa-info {
-      background: #f8f9fa;
-      border-left: 5px solid #0d6efd;
-      padding: 14px 16px;
-      margin: 15px 0 20px;
-      border-radius: 10px;
-      font-size: 14px;
-    }
-
-    .empresa-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 15px;
-      color: #0d6efd;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .empresa-item {
-      display: flex;
-      gap: 8px;
-      margin-top: 6px;
-    }
-
-    .icon {
-      font-size: 16px;
-      color: #0d6efd;
-    }
-
-    /* FORM */
- label {
-  display: block;
-  margin-top: 16px;
-  font-weight: 600;
-  font-size: 14.5px;
-  color: #355c7d; /* Azul pálido e elegante */
+  /* MODAL GS GLOBAL ESCOPADO */
+.modal-gs {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInGs 0.3s;
 }
 
+.modal-gs-content {
+  background: #fff;
+  width: 95%;
+  max-width: 520px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: scaleInGs 0.3s forwards;
+}
 
-    textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      resize: vertical;
-    }
-    textarea:focus {
-      outline: none;
-      border-color: #0d6efd;
-      box-shadow: 0 0 6px rgba(13,110,253,0.4);
-    }
+.modal-gs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .radio-group {
-      display: flex;
-      gap: 20px;
-      margin-top: 10px;
-    }
-    .radio-group label {
-      font-weight: normal;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .radio-group input {
-      accent-color: #0d6efd; /* AZUL */
-    }
+.modal-gs-header h2 { margin:0; color:#0d6efd; }
+.modal-gs-close { font-size:22px; cursor:pointer; color:#666; }
+.modal-gs-close:hover { color:#000; }
 
-    /* BOTÃO ENVIAR */
-    .btn-enviar {
-      width: 100%;
-      margin-top: 20px;
-      padding: 12px;
-      border: none;
-      border-radius: 50px;
-      background: linear-gradient(45deg, #0d6efd, #1e88e5);
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .btn-enviar:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      background: #0d6efd;
-    }
-    .btn-enviar:not(:disabled):hover {
-      background: linear-gradient(45deg, #0b5ed7, #0a58ca);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(13,110,253,0.45);
-    }
+.modal-gs-info {
+  background: #f8f9fa;
+  border-left: 5px solid #0d6efd;
+  padding: 14px 16px;
+  margin: 15px 0 20px;
+  border-radius: 10px;
+  font-size: 14px;
+}
 
-    #feedbackDescricao {
-      font-size: 13px;
-      margin-top: 5px;
-      color: #d9534f;
-    }
+.modal-gs-header-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #0d6efd;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
 
-    /* ANIMAÇÕES */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes scaleIn {
-      from { transform: scale(0.9); }
-      to { transform: scale(1); }
-    }
+.modal-gs-item { display:flex; gap:8px; margin-top:6px; }
+.modal-gs-icon { font-size:16px; color:#0d6efd; }
 
-    /* RESPONSIVO */
-    @media (max-width: 500px) {
-      .btn-cotacao { width: 100%; }
-    }
+.modal-gs-radio-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+.modal-gs-radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: normal;
+}
+.modal-gs-radio-group input { accent-color: #0d6efd; }
 
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+}
+textarea:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 6px rgba(13,110,253,0.4);
+}
 
+.modal-gs-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #0d6efd, #1e88e5);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-gs-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #0d6efd;
+}
+.modal-gs-btn:not(:disabled):hover {
+  background: linear-gradient(45deg, #0b5ed7, #0a58ca);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13,110,253,0.45);
+}
+
+#feedbackDescricao { font-size:13px; margin-top:5px; color:#d9534f; }
+
+/* ANIMAÇÕES */
+@keyframes fadeInGs { from {opacity:0} to {opacity:1} }
+@keyframes scaleInGs { from {transform:scale(0.9)} to {transform:scale(1)} }
+
+/* RESPONSIVO */
+@media (max-width:500px){ .btn-cotacao { width:100%; } }
 
 
 
@@ -911,7 +846,8 @@
                       
                     >
                       CONTACTOS
-                    </a></li><li><button id="btnCotacao" class="btn-cotacao">PEDIR COTAÇÃO</button></li></ul>
+                    </a></li><li><button id="btnCotacao" class="btn-cotacao">Pedir Cotação</button>
+</li></ul>
           </nav>
 		  
 		  
@@ -1252,6 +1188,7 @@
 			<!-- Item do menu: Pedir Cotação (ancora para seção na mesma página) -->
 			<li>
 			  <button id="btnCotacao" class="btn-cotacao">Pedir Cotação</button>
+
 			</li>
 
 		  
@@ -2058,61 +1995,53 @@
 <!-- END sections: footer-group -->
 </div>
 
-  <!-- MODAL -->
-  <div id="modalCotacao" class="modal">
-    <div class="modal-content">
+  <!-- MODAL GS GLOBAL -->
+<div id="modalCotacao" class="modal-gs">
+  <div class="modal-gs-content">
 
-      <div class="modal-header">
-        <h2>Pedido de Cotação</h2>
-        <span class="close" id="btnFechar">&times;</span>
-      </div>
-
-      <!-- APRESENTAÇÃO -->
-      <div class="empresa-info">
-        <div class="empresa-header">
-          <span class="icon empresa">🏢</span>
-          GS Global Corporation
-        </div>
-
-        <div class="empresa-item">
-          <span class="icon servico">🛠️</span>
-          <span>
-            Serviços especializados em
-            <strong>Hidráulica</strong> e
-            <strong>Manutenção Industrial</strong>
-          </span>
-        </div>
-
-        <div class="empresa-item">
-          <span class="icon procurement">📦</span>
-          <span>
-            Procurement de produtos conforme a necessidade do cliente
-          </span>
-        </div>
-      </div>
-
-      <label>Tipo de Cliente</label>
-      <div class="radio-group">
-        <label><input type="radio" name="tipoCliente" value="Empresa"> Empresa</label>
-        <label><input type="radio" name="tipoCliente" value="Singular"> Singular</label>
-      </div>
-
-      <label>O que procura?</label>
-      <textarea id="descricao" rows="5"
-        placeholder="Descreva o produto ou serviço que procura..."></textarea>
-
-      <p id="feedbackDescricao">Digite pelo menos 10 caracteres.</p>
-
-      <button id="btnEnviar" class="btn-enviar" disabled>
-        Enviar Pedido
-      </button>
-
+    <div class="modal-gs-header">
+      <h2>Pedido de Cotação</h2>
+      <span class="modal-gs-close" id="btnFechar">&times;</span>
     </div>
+
+    <!-- APRESENTAÇÃO -->
+    <div class="modal-gs-info">
+      <div class="modal-gs-header-info">
+        <span class="modal-gs-icon">🏢</span>
+        GS Global Corporation
+      </div>
+
+      <div class="modal-gs-item">
+        <span class="modal-gs-icon">🛠️</span>
+        Serviços especializados em <strong>Hidráulica</strong> e <strong>Manutenção Industrial</strong>
+      </div>
+
+      <div class="modal-gs-item">
+        <span class="modal-gs-icon">📦</span>
+        Procurement de produtos conforme a necessidade do cliente
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <label>Tipo de Cliente</label>
+    <div class="modal-gs-radio-group">
+      <label><input type="radio" name="tipoCliente" value="Empresa"> Empresa</label>
+      <label><input type="radio" name="tipoCliente" value="Singular"> Singular</label>
+    </div>
+
+    <label>O que procura?</label>
+    <textarea id="descricao" rows="5"
+      placeholder="Descreva o produto ou serviço que procura..."></textarea>
+
+    <p id="feedbackDescricao">Digite pelo menos 10 caracteres.</p>
+
+    <button id="btnEnviar" class="modal-gs-btn" disabled>Enviar Pedido</button>
+
   </div>
+</div>
 
 
-
-  <script>
+<script>
     const modal = document.getElementById("modalCotacao");
     const btnAbrir = document.getElementById("btnCotacao");
     const btnFechar = document.getElementById("btnFechar");
@@ -2120,58 +2049,36 @@
     const descricao = document.getElementById("descricao");
     const feedback = document.getElementById("feedbackDescricao");
 
-    const empresa = {
-      whatsapp: "258855082315"
-    };
+    const empresa = { whatsapp: "258855082315" };
 
-    btnAbrir.onclick = () => modal.style.display = "flex";
-    btnFechar.onclick = fecharModal;
-    window.onclick = (e) => { if (e.target === modal) fecharModal(); };
+    btnAbrir?.addEventListener("click", () => { modal.style.display = "flex"; });
+    btnFechar?.addEventListener("click", () => { modal.style.display = "none"; });
+    window.addEventListener("click", (e) => { if(e.target === modal) modal.style.display = "none"; });
 
-    function fecharModal() {
-      modal.style.display = "none";
-    }
+    document.querySelectorAll("input[name='tipoCliente'], textarea").forEach(el => {
+      el.addEventListener("input", () => {
+        const tipo = document.querySelector("input[name='tipoCliente']:checked");
+        const tamanho = descricao.value.trim().length;
+        btnEnviar.disabled = !(tipo && tamanho >= 10);
+        feedback.textContent = tamanho < 10 ? `Digite pelo menos 10 caracteres (${tamanho}/10)` : "Pedido pronto para envio.";
+        feedback.style.color = tamanho < 10 ? "#d9534f" : "#198754";
+      });
+    });
 
-    function validarFormulario() {
-      const tipo = document.querySelector("input[name='tipoCliente']:checked");
-      const tamanho = descricao.value.trim().length;
-
-      btnEnviar.disabled = !(tipo && tamanho >= 10);
-
-      if (tamanho < 10) {
-        feedback.textContent = `Digite pelo menos 10 caracteres (${tamanho}/10)`;
-        feedback.style.color = "#d9534f";
-      } else {
-        feedback.textContent = "Pedido pronto para envio.";
-        feedback.style.color = "#198754";
-      }
-    }
-
-    document.querySelectorAll("input, textarea")
-      .forEach(el => el.addEventListener("input", validarFormulario));
-
-    btnEnviar.onclick = () => {
-      const tipo = document.querySelector("input[name='tipoCliente']:checked").value;
+    btnEnviar?.addEventListener("click", () => {
+      const tipo = document.querySelector("input[name='tipoCliente']:checked")?.value;
       const texto = descricao.value.trim();
+      if(!tipo || !texto) return;
 
-      const mensagem =
-  `Olá!
+      const mensagem = `Olá!\n\nTipo de Cliente: ${tipo}\n\nPedido de Cotação:\n${texto}\n\nAguardo contacto. Obrigado.`;
 
-  Tipo de Cliente: ${tipo}
+      window.open(`https://wa.me/${empresa.whatsapp}?text=${encodeURIComponent(mensagem)}`, "_blank");
+      modal.style.display = "none";
+    });
+</script>
 
-  Pedido de Cotação:
-  ${texto}
 
-  Aguardo contacto. Obrigado.`;
-
-      window.open(
-        `https://wa.me/${empresa.whatsapp}?text=${encodeURIComponent(mensagem)}`,
-        "_blank"
-      );
-
-      fecharModal();
-    };
-  </script>
+  
 
 
  <script src="js/script4.js"></script>
